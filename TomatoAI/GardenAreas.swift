@@ -13,7 +13,7 @@ struct GardenAreas: View {
         NavigationView {
             VStack {
                 HStack {
-                    Label("Garden Areas", systemImage: ".circle")
+                    Label("TomatoAI", systemImage: ".circle")
                         .font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     NavigationLink(destination: PlantTimerView(TomatoAIApp.PLANTTIMER_PREVIEW)){
@@ -61,3 +61,4 @@ struct GardenAreas_Previews: PreviewProvider {
         return ga
     }
 }
+

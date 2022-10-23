@@ -14,7 +14,7 @@ struct CircularProgressView: View {
     
     
     @ObservedObject var timerManager : TimerManager
-    @State private var startDisabled = false
+    @State private var startPressed = false
     
     init (_ time: Int) {
         self.time = time
@@ -42,15 +42,27 @@ struct CircularProgressView: View {
                     .rotationEffect(.degrees(-90))
                 // 1
                     .animation(.easeOut, value: timerManager.progress)
-                Text("\(timerManager.secondsRemaining) s").font(.title).foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
+                if (timerManager.secondsRemaining == 0) {
+                    Text("Done!").font(.title).foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
+                } else {
+                    Text("\(timerManager.secondsRemaining) s").font(.title).foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
+                }
                 
             }
             Button(action: {
-                timerManager.start()
-                startDisabled = true
+                if (!timerManager.startedAtAll){
+                    timerManager.start()
+                }
+                timerManager.working = !timerManager.working
+                startPressed = !startPressed
             }) {
-                Text("Start Timer")
-            }.disabled(startDisabled)
+                if startPressed {
+                    Text("Pause")
+                }else {
+                    Text("Start")
+                }
+                
+            }
             .padding()
             .background(TomatoAIApp.BACKGROUND_COLOR)
             .foregroundColor(TomatoAIApp.FOREGROUND_COLOR)

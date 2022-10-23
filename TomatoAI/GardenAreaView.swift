@@ -29,7 +29,7 @@ struct GardenAreaView: View {
                  .foregroundColor(.accentColor)
                  Text("Hello, world!")*/
                 HStack {
-                    Label("Hose: \(gardenRate) gal/min", systemImage: ".circle")
+                    Label("Hose: \(String(format: "%.2f", gardenRate)) gal/min", systemImage: ".circle")
                         .font(.title2)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     NavigationLink(destination: CalibrationView(gardenArea, $gardenRate)) {
@@ -82,10 +82,11 @@ struct GardenAreaView: View {
     }
 }
 
-
+/*
 
 struct GardenAreaView_Previews: PreviewProvider {
     static var previews: some View {
         GardenAreaView(TomatoAIApp.GARDEN_PREVIEW)
     }
 }
+*/
