@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		B1F112A7290497FC00BD2FBD /* TomatoAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112A6290497FC00BD2FBD /* TomatoAIApp.swift */; };
-		B1F112A9290497FC00BD2FBD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112A8290497FC00BD2FBD /* ContentView.swift */; };
+		B1F112A9290497FC00BD2FBD /* GardenAreas.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112A8290497FC00BD2FBD /* GardenAreas.swift */; };
 		B1F112AB290497FE00BD2FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1F112AA290497FE00BD2FBD /* Assets.xcassets */; };
 		B1F112AE290497FE00BD2FBD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1F112AD290497FE00BD2FBD /* Preview Assets.xcassets */; };
 		B1F112B8290497FE00BD2FBD /* TomatoAITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112B7290497FE00BD2FBD /* TomatoAITests.swift */; };
 		B1F112C2290497FE00BD2FBD /* TomatoAIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112C1290497FE00BD2FBD /* TomatoAIUITests.swift */; };
 		B1F112C4290497FE00BD2FBD /* TomatoAIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112C3290497FE00BD2FBD /* TomatoAIUITestsLaunchTests.swift */; };
+		B1F112D129049D6F00BD2FBD /* GardenArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112D029049D6F00BD2FBD /* GardenArea.swift */; };
+		B1F112D32904B29F00BD2FBD /* GardenAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112D22904B29F00BD2FBD /* GardenAreaView.swift */; };
+		B1F112D52904B49A00BD2FBD /* PlantTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112D42904B49A00BD2FBD /* PlantTimer.swift */; };
+		B1F112D72904B55400BD2FBD /* PlantTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112D62904B55400BD2FBD /* PlantTimerView.swift */; };
+		B1F112D92904C88E00BD2FBD /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112D82904C88E00BD2FBD /* CircularProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +41,7 @@
 /* Begin PBXFileReference section */
 		B1F112A3290497FC00BD2FBD /* TomatoAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TomatoAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F112A6290497FC00BD2FBD /* TomatoAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoAIApp.swift; sourceTree = "<group>"; };
-		B1F112A8290497FC00BD2FBD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B1F112A8290497FC00BD2FBD /* GardenAreas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenAreas.swift; sourceTree = "<group>"; };
 		B1F112AA290497FE00BD2FBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1F112AD290497FE00BD2FBD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B1F112B3290497FE00BD2FBD /* TomatoAITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoAITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +49,11 @@
 		B1F112BD290497FE00BD2FBD /* TomatoAIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TomatoAIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1F112C1290497FE00BD2FBD /* TomatoAIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoAIUITests.swift; sourceTree = "<group>"; };
 		B1F112C3290497FE00BD2FBD /* TomatoAIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TomatoAIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B1F112D029049D6F00BD2FBD /* GardenArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenArea.swift; sourceTree = "<group>"; };
+		B1F112D22904B29F00BD2FBD /* GardenAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenAreaView.swift; sourceTree = "<group>"; };
+		B1F112D42904B49A00BD2FBD /* PlantTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTimer.swift; sourceTree = "<group>"; };
+		B1F112D62904B55400BD2FBD /* PlantTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTimerView.swift; sourceTree = "<group>"; };
+		B1F112D82904C88E00BD2FBD /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +105,14 @@
 			isa = PBXGroup;
 			children = (
 				B1F112A6290497FC00BD2FBD /* TomatoAIApp.swift */,
-				B1F112A8290497FC00BD2FBD /* ContentView.swift */,
+				B1F112A8290497FC00BD2FBD /* GardenAreas.swift */,
 				B1F112AA290497FE00BD2FBD /* Assets.xcassets */,
 				B1F112AC290497FE00BD2FBD /* Preview Content */,
+				B1F112D029049D6F00BD2FBD /* GardenArea.swift */,
+				B1F112D22904B29F00BD2FBD /* GardenAreaView.swift */,
+				B1F112D42904B49A00BD2FBD /* PlantTimer.swift */,
+				B1F112D62904B55400BD2FBD /* PlantTimerView.swift */,
+				B1F112D82904C88E00BD2FBD /* CircularProgressView.swift */,
 			);
 			path = TomatoAI;
 			sourceTree = "<group>";
@@ -257,8 +272,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1F112A9290497FC00BD2FBD /* ContentView.swift in Sources */,
+				B1F112D32904B29F00BD2FBD /* GardenAreaView.swift in Sources */,
+				B1F112A9290497FC00BD2FBD /* GardenAreas.swift in Sources */,
+				B1F112D72904B55400BD2FBD /* PlantTimerView.swift in Sources */,
+				B1F112D92904C88E00BD2FBD /* CircularProgressView.swift in Sources */,
 				B1F112A7290497FC00BD2FBD /* TomatoAIApp.swift in Sources */,
+				B1F112D129049D6F00BD2FBD /* GardenArea.swift in Sources */,
+				B1F112D52904B49A00BD2FBD /* PlantTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
