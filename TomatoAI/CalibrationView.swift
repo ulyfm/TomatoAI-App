@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CalibrationView: View {
     
-    var gardenArea: GardenArea
+    @State var gardenArea: GardenArea
     @Environment(\.presentationMode) var presentation
     @State private var toggleButton = false
     @State private var timeMeasured = false
@@ -17,13 +17,6 @@ struct CalibrationView: View {
     @State private var timeElapsed: Double = 0.0
     @State private var flowRate: Double = 0.0
     @State private var textInput: String = ""
-    @Binding var gardenRate: Double
-    
-    init (_ gardenArea: GardenArea, _ gardenRate: Binding<Double>) {
-        self.gardenArea = gardenArea
-        self._gardenRate = gardenRate
-    }
-    
     
     var body: some View {
         
@@ -38,8 +31,9 @@ struct CalibrationView: View {
                         timeMeasured = true
                         timeElapsed = NSDate().timeIntervalSince1970 - startTime
                         flowRate = (textInput as NSString).doubleValue / (timeElapsed/60) // TODO fix this
-                        self.gardenArea.waterRate = flowRate
-                        gardenRate = flowRate
+                        
+                        self.gardenArea.setRate(flowRate)
+                        
                     } else {
                         timeMeasured = false
                         startTime = NSDate().timeIntervalSince1970
@@ -61,18 +55,6 @@ struct CalibrationView: View {
                 .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)
                 if timeMeasured {
                     Text("It took you \(timeElapsed) seconds to fill the bucket. Your hose's estimated flow rate is \(flowRate) gallons per minute.").font(.title2).foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
-                    /*
-                     Button(action: {
-                     self.gardenArea.waterRate = flowRate
-                     self.presentation.wrappedValue.dismiss()
-                     }) {
-                     Text("Confirm")
-                     }
-                     .padding()
-                     .background(TomatoAIApp.BACKGROUND_COLOR)
-                     .foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
-                     .clipShape(RoundedRectangle(cornerRadius: 10))
-                     .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)*/
                 }
             }
             Spacer()

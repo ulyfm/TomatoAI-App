@@ -17,12 +17,19 @@ class GardenArea : Hashable, Equatable {
     
     var name: String
     var icon: String
-    @State var waterRate: Double// gallons per minute
+    //Making this a state variable screws everything up for whatever reason:
+    var waterRate: Double// gallons per minute
     
+    //making this @State means that sections won't show up in the list
     var sections = [PlantTimer]()
     init(_ name:String, _ icon:String, _ waterRate: Double) {
         self.name = name
         self.icon = icon
         self.waterRate = waterRate
+    }
+    func setRate(_ waterRate: Double) {
+        print("Setting flow rate: \(waterRate)")
+        self.waterRate = waterRate
+        print("Set \(self.waterRate)")
     }
 }

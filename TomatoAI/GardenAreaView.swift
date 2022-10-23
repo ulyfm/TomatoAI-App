@@ -9,31 +9,21 @@ import SwiftUI
 import Foundation
 
 struct GardenAreaView: View {
-    var gardenArea: GardenArea
+    @StateObject private var viewModel = GardenAreaViewModel()
+    private var gardenAreaTemp: GardenArea
+    
     init(_ gardenArea: GardenArea) {
-        self.gardenArea = gardenArea
-        self.waterRateDisp = String(gardenArea.waterRate)
-        self.gardenRate = gardenArea.waterRate
-        //update()
+        self.gardenAreaTemp = gardenArea
     }
-    @State var waterRateDisp: String = ""
-    @State private var gardenRate: Double
-    /*
-    func update() {
-        gardenRate = gardenArea.waterRate
-    }*/
+    
+
     var body: some View {
             VStack {
-                /*
-                 Image(systemName: "globe")
-                 .imageScale(.large)
-                 .foregroundColor(.accentColor)
-                 Text("Hello, world!")*/
                 HStack {
-                    Label("Hose: \(String(format: "%.2f", gardenRate)) gal/min", systemImage: ".circle")
+                    Label("Hose: \(String(format: "%.2f", viewModel.gardenArea.waterRate)) gal/min", systemImage: ".circle")
                         .font(.title2)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    NavigationLink(destination: CalibrationView(gardenArea, $gardenRate)) {
+                    NavigationLink(destination: CalibrationView(gardenArea: viewModel.gardenArea)) {
                         Text("Recalibrate")
                             .frame(maxWidth: .infinity)
                     }
@@ -41,7 +31,7 @@ struct GardenAreaView: View {
                 ScrollView {
                     VStack {
                         
-                        ForEach(gardenArea.sections, id:\.id) { section in
+                        ForEach(viewModel.gardenArea.sections, id:\.id) { section in
                             let _ = section.updateSeconds()
                             // set button:
                             NavigationLink(destination: PlantTimerView(section)) {
@@ -57,7 +47,7 @@ struct GardenAreaView: View {
                             
                         }
                         // add new plant button:
-                        NavigationLink(destination: PlantAddEditView(plant: PlantTimer("", "", 1, 10), gardenArea: self.gardenArea, editing:false)) {
+                        NavigationLink(destination: PlantAddEditView(plant: PlantTimer("", "", 1, 10), gardenArea: viewModel.gardenArea, editing:false)) {
                             Image(systemName: "plus.circle")
                             Text("Add Plants...")
                                 .frame(maxWidth: .infinity)
@@ -74,14 +64,24 @@ struct GardenAreaView: View {
                 }
             }
             .padding()
+            .onAppear(perform: {
+                //scunged
+                viewModel.gardenArea = gardenAreaTemp
+            })
         
             //.onAppear(perform: update)
             
         
-        .navigationBarTitle(Text(gardenArea.name)
+            .navigationBarTitle(Text(viewModel.gardenArea.name)
             .foregroundColor(TomatoAIApp.FOREGROUND_COLOR).font(.title2), displayMode: .inline)
         
         
+    }
+}
+
+extension GardenAreaView {
+    @MainActor class GardenAreaViewModel: ObservableObject {
+        @Published var gardenArea: GardenArea = GardenArea("", "", 1.0)
     }
 }
 
