@@ -10,9 +10,9 @@ import Foundation
 struct GardenArea : Hashable {
     var name: String
     var icon: String
-    var waterRate: Float // gallons per minute
+    var waterRate: Double // gallons per minute
     var sections = [PlantTimer]()
-    init(_ name:String, _ icon:String, _ waterRate: Float) {
+    init(_ name:String, _ icon:String, _ waterRate: Double) {
         self.name = name
         self.icon = icon
         self.waterRate = waterRate

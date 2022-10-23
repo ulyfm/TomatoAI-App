@@ -18,6 +18,9 @@ struct PlantTimerView: View {
     var body: some View {
         
             VStack {
+                Text("TomatoAI")
+                    .font(.title)
+                    .foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
                 Text("Watering Time")
                     .font(.title)
                     .foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
@@ -25,8 +28,6 @@ struct PlantTimerView: View {
                 CircularProgressView(plantTimer.seconds)
                     .frame(width: 200, height: 200)
                     .padding()
-                
-                  
             }
             .padding()
             .scaledToFill()

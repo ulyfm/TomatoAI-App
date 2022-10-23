@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct GardenAreaView: View {
     var gardenArea: GardenArea
@@ -20,10 +21,10 @@ struct GardenAreaView: View {
                  .foregroundColor(.accentColor)
                  Text("Hello, world!")*/
                 HStack {
-                    Label("Hose: 1.2 gal/min", systemImage: ".circle")
+                    Label("Hose: " + String(gardenArea.waterRate) + " gal/min", systemImage: ".circle")
                         .font(.title2)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    NavigationLink(destination: PlantTimerView(TomatoAIApp.PLANTTIMER_PREVIEW)) {
+                    NavigationLink(destination: CalibrationView(gardenArea)) {
                         Text("Recalibrate")
                             .frame(maxWidth: .infinity)
                     }

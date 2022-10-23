@@ -14,6 +14,7 @@ struct CircularProgressView: View {
     
     
     @ObservedObject var timerManager : TimerManager
+    @State private var startDisabled = false
     
     init (_ time: Int) {
         self.time = time
@@ -46,9 +47,10 @@ struct CircularProgressView: View {
             }
             Button(action: {
                 timerManager.start()
+                startDisabled = true
             }) {
                 Text("Start Timer")
-            }
+            }.disabled(startDisabled)
             .padding()
             .background(TomatoAIApp.BACKGROUND_COLOR)
             .foregroundColor(TomatoAIApp.FOREGROUND_COLOR)

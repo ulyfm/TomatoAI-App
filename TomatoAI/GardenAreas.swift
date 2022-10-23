@@ -12,11 +12,6 @@ struct GardenAreas: View {
     var body: some View {
         NavigationView {
             VStack {
-                /*
-                 Image(systemName: "globe")
-                 .imageScale(.large)
-                 .foregroundColor(.accentColor)
-                 Text("Hello, world!")*/
                 HStack {
                     Label("Garden Areas", systemImage: ".circle")
                         .font(/*@START_MENU_TOKEN@*/.largeTitle/*@END_MENU_TOKEN@*/)
