@@ -40,7 +40,7 @@ struct GardenAreaView: View {
                 ScrollView {
                     VStack {
                         
-                        ForEach(gardenArea.sections, id:\.self) { section in
+                        ForEach(gardenArea.sections, id:\.id) { section in
                             
                             // set button:
                             NavigationLink(destination: PlantTimerView(section)) {
@@ -56,7 +56,7 @@ struct GardenAreaView: View {
                             
                         }
                         // add new plant button:
-                        NavigationLink(destination: PlantTimerView(TomatoAIApp.PLANTTIMER_PREVIEW)) {
+                        NavigationLink(destination: PlantAddEditView(plant: PlantTimer("", "", 1, 10), gardenArea: self.gardenArea, editing:false)) {
                             Image(systemName: "plus.circle")
                             Text("Add Plants...")
                                 .frame(maxWidth: .infinity)
@@ -73,6 +73,7 @@ struct GardenAreaView: View {
                 }
             }
             .padding()
+            .onAppear(perform: update)
             
         
         .navigationBarTitle(Text(gardenArea.name)

@@ -21,6 +21,7 @@
 		B1F112D92904C88E00BD2FBD /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112D82904C88E00BD2FBD /* CircularProgressView.swift */; };
 		B1F112DB2904E4CF00BD2FBD /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112DA2904E4CF00BD2FBD /* TimerManager.swift */; };
 		B1F112DD2904EBCF00BD2FBD /* CalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112DC2904EBCF00BD2FBD /* CalibrationView.swift */; };
+		B1F112E12905241A00BD2FBD /* PlantAddEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112E02905241A00BD2FBD /* PlantAddEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		B1F112D82904C88E00BD2FBD /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		B1F112DA2904E4CF00BD2FBD /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		B1F112DC2904EBCF00BD2FBD /* CalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationView.swift; sourceTree = "<group>"; };
+		B1F112E02905241A00BD2FBD /* PlantAddEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantAddEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				B1F112D82904C88E00BD2FBD /* CircularProgressView.swift */,
 				B1F112DA2904E4CF00BD2FBD /* TimerManager.swift */,
 				B1F112DC2904EBCF00BD2FBD /* CalibrationView.swift */,
+				B1F112E02905241A00BD2FBD /* PlantAddEditView.swift */,
 			);
 			path = TomatoAI;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				B1F112DD2904EBCF00BD2FBD /* CalibrationView.swift in Sources */,
 				B1F112D72904B55400BD2FBD /* PlantTimerView.swift in Sources */,
 				B1F112D92904C88E00BD2FBD /* CircularProgressView.swift in Sources */,
+				B1F112E12905241A00BD2FBD /* PlantAddEditView.swift in Sources */,
 				B1F112A7290497FC00BD2FBD /* TomatoAIApp.swift in Sources */,
 				B1F112D129049D6F00BD2FBD /* GardenArea.swift in Sources */,
 				B1F112D52904B49A00BD2FBD /* PlantTimer.swift in Sources */,

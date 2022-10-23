@@ -29,49 +29,51 @@ struct CalibrationView: View {
         
         
         VStack {
-            Text("To recalibrate your hose flow rate, find a bucket or container with a known volume. Enter the volume (in gallons) below:").font(.title2).foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
-            TextField("Bucket Volume", text: $textInput).font(.title2)
-            Text("The next step is to measure the time it takes to fill the bucket with your hose. Press start when you begin filling your bucket, then press stop when it is full.").font(.title2).foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
-            Button(action: {
-                if toggleButton {
-                    timeMeasured = true
-                    timeElapsed = NSDate().timeIntervalSince1970 - startTime
-                    flowRate = (textInput as NSString).doubleValue / (timeElapsed/60) // TODO fix this
-                    self.gardenArea.waterRate = flowRate
-                    gardenRate = flowRate
-                } else {
-                    timeMeasured = false
-                    startTime = NSDate().timeIntervalSince1970
-                }
-                toggleButton = !toggleButton
-                
-            }) {
-                if !toggleButton {
-                    Text("Start Timer")
-                } else {
-                    Text("End Timer")
-                }
-                
-            }
-            .padding()
-            .background(TomatoAIApp.BACKGROUND_COLOR)
-            .foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)
-            if timeMeasured {
-                Text("It took you \(timeElapsed) seconds to fill the bucket. Your hose's estimated flow rate is \(flowRate) gallons per minute.").font(.title2).foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
-                /*
+            ScrollView {
+                Text("To recalibrate your hose flow rate, find a bucket or container with a known volume. Enter the volume (in gallons) below:").font(.title2).foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
+                TextField("Bucket Volume", text: $textInput).font(.title2)
+                Text("The next step is to measure the time it takes to fill the bucket with your hose. Press start when you begin filling your bucket, then press stop when it is full.").font(.title2).foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
                 Button(action: {
-                    self.gardenArea.waterRate = flowRate
-                    self.presentation.wrappedValue.dismiss()
+                    if toggleButton {
+                        timeMeasured = true
+                        timeElapsed = NSDate().timeIntervalSince1970 - startTime
+                        flowRate = (textInput as NSString).doubleValue / (timeElapsed/60) // TODO fix this
+                        self.gardenArea.waterRate = flowRate
+                        gardenRate = flowRate
+                    } else {
+                        timeMeasured = false
+                        startTime = NSDate().timeIntervalSince1970
+                    }
+                    toggleButton = !toggleButton
+                    
                 }) {
-                    Text("Confirm")
+                    if !toggleButton {
+                        Text("Start Timer")
+                    } else {
+                        Text("End Timer")
+                    }
+                    
                 }
                 .padding()
                 .background(TomatoAIApp.BACKGROUND_COLOR)
                 .foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)*/
+                .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)
+                if timeMeasured {
+                    Text("It took you \(timeElapsed) seconds to fill the bucket. Your hose's estimated flow rate is \(flowRate) gallons per minute.").font(.title2).foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
+                    /*
+                     Button(action: {
+                     self.gardenArea.waterRate = flowRate
+                     self.presentation.wrappedValue.dismiss()
+                     }) {
+                     Text("Confirm")
+                     }
+                     .padding()
+                     .background(TomatoAIApp.BACKGROUND_COLOR)
+                     .foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
+                     .clipShape(RoundedRectangle(cornerRadius: 10))
+                     .font(/*@START_MENU_TOKEN@*/.title2/*@END_MENU_TOKEN@*/)*/
+                }
             }
             Spacer()
             

@@ -16,9 +16,17 @@ struct TomatoAIApp: App {
     static let GRAY_COLOR = Color(red: 236/255, green: 240/255, blue: 241/255)
     static let GARDEN_PREVIEW = GardenArea("Garden Area", "", 1.0)
     static let PLANTTIMER_PREVIEW = PlantTimer("Plant Timer", "", 1, 10)
+    static let DEMO_LAT = 47.6568
+    static let DEMO_LON = -122.3305
+    
     var body: some Scene {
         WindowGroup {
+            //GardenAreas()
+            
+            //test code
             GardenAreas()
+            // add some sample areas
+            
         }
     }
 }

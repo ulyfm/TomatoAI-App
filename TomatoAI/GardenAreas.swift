@@ -9,6 +9,17 @@ import SwiftUI
 
 struct GardenAreas: View {
     var areas = [GardenArea]()
+    
+    init () {
+        // TEST CODE EXAMPLE
+        var fy = GardenArea("Front Yard", "", 1.0)
+        fy.sections.append(PlantTimer("Tomatoes", "tomato", 4, 15))
+        fy.sections.append(PlantTimer("Potatoes", "potato", 6, 20))
+        fy.sections.append(PlantTimer("Peach Tree", "peach", 1, 25))
+        //fy.sections[0].updateSeconds()
+        areas.append(fy)
+        areas.append(GardenArea("Back Yard", "", 2.0))
+    }
     var body: some View {
         NavigationView {
             VStack {
@@ -56,6 +67,7 @@ struct GardenAreas_Previews: PreviewProvider {
         fy.sections.append(PlantTimer("Tomatoes", "tomato", 4, 15))
         fy.sections.append(PlantTimer("Potatoes", "potato", 6, 20))
         fy.sections.append(PlantTimer("Peach Tree", "peach", 1, 25))
+        //fy.sections[0].updateSeconds()
         ga.areas.append(fy)
         ga.areas.append(GardenArea("Back Yard", "", 2.0))
         return ga
