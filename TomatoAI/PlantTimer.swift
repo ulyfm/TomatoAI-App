@@ -35,11 +35,11 @@ class PlantTimer : Hashable, Equatable {
     }
     func updateSeconds() {
         print("Updating Seconds")
-        if let url = URL(string: "https://www.hackingwithswift.com") {
+        if let url = URL(string: "http://143.198.228.213:8000/get/\(name)/\(icon)/sunny/\(height)/\(height)/100.0/20.0/40.0/40.0/70.0") {
             do {
                 let contents = try String(contentsOf: url)
-                print(contents)
-                self.seconds = 5 // should be contents, parsed
+                self.seconds = Int((contents as NSString).doubleValue)
+                //self.seconds = 5 // should be contents, parsed
             } catch {
                 print("Could not load")
             }
