@@ -10,8 +10,16 @@ import Foundation
 
 struct GardenAreaView: View {
     var gardenArea: GardenArea
+    @State var waterRate: String
     init(_ gardenArea: GardenArea) {
         self.gardenArea = gardenArea
+        self.waterRate = String(gardenArea.waterRate)
+        self.updateRate()
+    }
+    func updateRate () {
+        var strs = String(gardenArea.waterRate)
+        // could set max length
+        self.waterRate = strs
     }
     var body: some View {
             VStack {
@@ -27,7 +35,7 @@ struct GardenAreaView: View {
                     NavigationLink(destination: CalibrationView(gardenArea)) {
                         Text("Recalibrate")
                             .frame(maxWidth: .infinity)
-                    }
+                    }.onAppear(perform: {updateRate()})
                 }
                 ScrollView {
                     VStack {
@@ -61,16 +69,21 @@ struct GardenAreaView: View {
                     }
                     .scrollContentBackground(.hidden)
                     .padding(0)
+                    .onAppear(perform: updateRate)//todo hope this works
                     Spacer()
                 }
             }
+            .onAppear(perform: updateRate)//todo hope this works
             .padding()
         
         .navigationBarTitle(Text(gardenArea.name)
             .foregroundColor(TomatoAIApp.FOREGROUND_COLOR).font(.title2), displayMode: .inline)
         
+        
     }
 }
+
+
 
 struct GardenAreaView_Previews: PreviewProvider {
     static var previews: some View {
