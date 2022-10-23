@@ -14,13 +14,14 @@ struct GardenAreaView: View {
         self.gardenArea = gardenArea
         self.waterRateDisp = String(gardenArea.waterRate)
         self.gardenRate = gardenArea.waterRate
-        update()
+        //update()
     }
     @State var waterRateDisp: String = ""
     @State private var gardenRate: Double
+    /*
     func update() {
         gardenRate = gardenArea.waterRate
-    }
+    }*/
     var body: some View {
             VStack {
                 /*
@@ -41,7 +42,7 @@ struct GardenAreaView: View {
                     VStack {
                         
                         ForEach(gardenArea.sections, id:\.id) { section in
-                            
+                            let _ = section.updateSeconds()
                             // set button:
                             NavigationLink(destination: PlantTimerView(section)) {
                                 Image(section.icon).renderingMode(.original)
@@ -73,7 +74,8 @@ struct GardenAreaView: View {
                 }
             }
             .padding()
-            .onAppear(perform: update)
+        
+            //.onAppear(perform: update)
             
         
         .navigationBarTitle(Text(gardenArea.name)

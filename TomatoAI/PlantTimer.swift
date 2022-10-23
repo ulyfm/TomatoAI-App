@@ -6,13 +6,20 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct PlantTimer : Hashable {
+class PlantTimer : Hashable, Equatable {
+    func hash(into hasher: inout Hasher) { return hasher.combine(ObjectIdentifier(self))}
+    static func == (lhs: PlantTimer, rhs: PlantTimer) -> Bool {
+        return lhs.id == rhs.id // yuck
+    }
+    
+    
     let id = UUID()
     var name: String
     var icon: String
     var number: Int
-    var seconds: Int
+    @State var seconds: Int
     var height = 10.0
     var shade = 0
     var type = PlantType.none
@@ -27,13 +34,17 @@ struct PlantTimer : Hashable {
         //updateSeconds()
     }
     func updateSeconds() {
-        let url = URL(string: "https://google.com")!
-
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-            guard let data = data else { return }
-            print(String(data: data, encoding: .utf8)!)
+        print("Updating Seconds")
+        if let url = URL(string: "https://www.hackingwithswift.com") {
+            do {
+                let contents = try String(contentsOf: url)
+                print(contents)
+                self.seconds = 5 // should be contents, parsed
+            } catch {
+                print("Could not load")
+            }
+        } else {
+            print("Bad URL")
         }
-
-        task.resume()
     }
 }

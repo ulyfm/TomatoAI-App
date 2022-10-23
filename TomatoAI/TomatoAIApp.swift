@@ -22,7 +22,8 @@ struct TomatoAIApp: App {
     var body: some Scene {
         WindowGroup {
             //GardenAreas()
-            
+            var pt = PlantTimer("", "", 1, 1)
+            let _ = pt.updateSeconds()
             //test code
             GardenAreas()
             // add some sample areas
