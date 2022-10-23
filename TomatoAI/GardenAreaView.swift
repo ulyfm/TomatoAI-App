@@ -10,16 +10,16 @@ import Foundation
 
 struct GardenAreaView: View {
     var gardenArea: GardenArea
-    @State var waterRate: String
     init(_ gardenArea: GardenArea) {
         self.gardenArea = gardenArea
-        self.waterRate = String(gardenArea.waterRate)
-        self.updateRate()
+        self.waterRateDisp = String(gardenArea.waterRate)
+        self.gardenRate = gardenArea.waterRate
+        update()
     }
-    func updateRate () {
-        var strs = String(gardenArea.waterRate)
-        // could set max length
-        self.waterRate = strs
+    @State var waterRateDisp: String = ""
+    @State private var gardenRate: Double
+    func update() {
+        gardenRate = gardenArea.waterRate
     }
     var body: some View {
             VStack {
@@ -29,13 +29,13 @@ struct GardenAreaView: View {
                  .foregroundColor(.accentColor)
                  Text("Hello, world!")*/
                 HStack {
-                    Label("Hose: " + String(gardenArea.waterRate) + " gal/min", systemImage: ".circle")
+                    Label("Hose: \(gardenRate) gal/min", systemImage: ".circle")
                         .font(.title2)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    NavigationLink(destination: CalibrationView(gardenArea)) {
+                    NavigationLink(destination: CalibrationView(gardenArea, $gardenRate)) {
                         Text("Recalibrate")
                             .frame(maxWidth: .infinity)
-                    }.onAppear(perform: {updateRate()})
+                    }
                 }
                 ScrollView {
                     VStack {
@@ -69,12 +69,11 @@ struct GardenAreaView: View {
                     }
                     .scrollContentBackground(.hidden)
                     .padding(0)
-                    .onAppear(perform: updateRate)//todo hope this works
                     Spacer()
                 }
             }
-            .onAppear(perform: updateRate)//todo hope this works
             .padding()
+            
         
         .navigationBarTitle(Text(gardenArea.name)
             .foregroundColor(TomatoAIApp.FOREGROUND_COLOR).font(.title2), displayMode: .inline)
