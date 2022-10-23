@@ -40,7 +40,6 @@ struct GardenAreaView: View {
                                     .frame(maxWidth: .infinity)
                             }
                             .padding()
-                            
                             .background(TomatoAIApp.BACKGROUND_COLOR)
                             .foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
                             .clipShape(RoundedRectangle(cornerRadius: 10))

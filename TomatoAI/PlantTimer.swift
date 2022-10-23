@@ -11,9 +11,11 @@ struct PlantTimer : Hashable {
     var name: String
     var icon: String
     var number: Int
-    init(_ name:String, _ icon:String, _ number: Int) {
+    var seconds: Int
+    init(_ name:String, _ icon:String, _ number: Int, _ seconds: Int) {
         self.name = name
         self.icon = icon
         self.number = number
+        self.seconds = seconds
     }
 }

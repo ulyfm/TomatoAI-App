@@ -58,9 +58,9 @@ struct GardenAreas_Previews: PreviewProvider {
         var ga = GardenAreas()
         // add some sample areas
         var fy = GardenArea("Front Yard", "", 1.0)
-        fy.sections.append(PlantTimer("Tomatoes", "tomato", 4))
-        fy.sections.append(PlantTimer("Potatoes", "potato", 6))
-        fy.sections.append(PlantTimer("Peach Tree", "peach", 1))
+        fy.sections.append(PlantTimer("Tomatoes", "tomato", 4, 15))
+        fy.sections.append(PlantTimer("Potatoes", "potato", 6, 20))
+        fy.sections.append(PlantTimer("Peach Tree", "peach", 1, 25))
         ga.areas.append(fy)
         ga.areas.append(GardenArea("Back Yard", "", 2.0))
         return ga

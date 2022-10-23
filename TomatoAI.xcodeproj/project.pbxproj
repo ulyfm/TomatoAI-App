@@ -19,6 +19,7 @@
 		B1F112D52904B49A00BD2FBD /* PlantTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112D42904B49A00BD2FBD /* PlantTimer.swift */; };
 		B1F112D72904B55400BD2FBD /* PlantTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112D62904B55400BD2FBD /* PlantTimerView.swift */; };
 		B1F112D92904C88E00BD2FBD /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112D82904C88E00BD2FBD /* CircularProgressView.swift */; };
+		B1F112DB2904E4CF00BD2FBD /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F112DA2904E4CF00BD2FBD /* TimerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		B1F112D42904B49A00BD2FBD /* PlantTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTimer.swift; sourceTree = "<group>"; };
 		B1F112D62904B55400BD2FBD /* PlantTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTimerView.swift; sourceTree = "<group>"; };
 		B1F112D82904C88E00BD2FBD /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		B1F112DA2904E4CF00BD2FBD /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				B1F112D42904B49A00BD2FBD /* PlantTimer.swift */,
 				B1F112D62904B55400BD2FBD /* PlantTimerView.swift */,
 				B1F112D82904C88E00BD2FBD /* CircularProgressView.swift */,
+				B1F112DA2904E4CF00BD2FBD /* TimerManager.swift */,
 			);
 			path = TomatoAI;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1F112D32904B29F00BD2FBD /* GardenAreaView.swift in Sources */,
+				B1F112DB2904E4CF00BD2FBD /* TimerManager.swift in Sources */,
 				B1F112A9290497FC00BD2FBD /* GardenAreas.swift in Sources */,
 				B1F112D72904B55400BD2FBD /* PlantTimerView.swift in Sources */,
 				B1F112D92904C88E00BD2FBD /* CircularProgressView.swift in Sources */,

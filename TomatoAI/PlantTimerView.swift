@@ -8,23 +8,33 @@
 import SwiftUI
 
 struct PlantTimerView: View {
-    @State var progress: Double = 0.6
     var plantTimer: PlantTimer
+    
+
+    
     init(_ plantTimer: PlantTimer) {
         self.plantTimer = plantTimer
     }
     var body: some View {
         
             VStack {
-                CircularProgressView(progress: progress)
+                Text("Watering Time")
+                    .font(.title)
+                    .foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
+                
+                CircularProgressView(plantTimer.seconds)
                     .frame(width: 200, height: 200)
+                    .padding()
+                
                   
             }
             .padding()
-            
+            .scaledToFill()
             .navigationBarTitle(Text(plantTimer.name)
             .foregroundColor(TomatoAIApp.FOREGROUND_COLOR).font(.title2), displayMode: .inline)
+        
     }
+    
 }
 
 struct PlantTimerView_Previews: PreviewProvider {
