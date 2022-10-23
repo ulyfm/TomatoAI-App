@@ -19,7 +19,8 @@ class PlantTimer : Hashable, Equatable {
     var name: String
     var icon: String
     var number: Int
-    @State var seconds: Int
+    //@State
+    var seconds: Int
     var height = 10.0
     var shade = 0
     var type = PlantType.none
@@ -31,15 +32,22 @@ class PlantTimer : Hashable, Equatable {
         self.icon = icon
         self.number = number
         self.seconds = seconds
+        if name == "Potatoes" {
+            height = 20.0
+        }
         //updateSeconds()
     }
     func updateSeconds() {
         print("Updating Seconds")
-        if let url = URL(string: "http://143.198.228.213:8000/get/\(name)/\(icon)/sunny/\(height)/\(height)/100.0/20.0/40.0/40.0/70.0") {
+        let urlString = "http://143.198.228.213:8000/get/\(name)/\(icon)/sunny/\(height)/\(height)/100.0/20.0/40.0/40.0/70.0"
+        print("URL: \(urlString)")
+        if let url = URL(string: urlString) {
             do {
                 let contents = try String(contentsOf: url)
+                print("Data: \(contents)")
                 self.seconds = Int((contents as NSString).doubleValue)
                 //self.seconds = 5 // should be contents, parsed
+                print("Name: \(name), seconds: \(contents)")
             } catch {
                 print("Could not load")
             }

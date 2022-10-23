@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct PlantTimerView: View {
-    var plantTimer: PlantTimer
-    
-
+    @StateObject private var viewModel = PlantTimerViewModel()
+    private var plantTimerTemp: PlantTimer
     
     init(_ plantTimer: PlantTimer) {
-        self.plantTimer = plantTimer
+        self.plantTimerTemp = plantTimer
     }
+    
     var body: some View {
         
             VStack {
@@ -25,17 +25,27 @@ struct PlantTimerView: View {
                     .font(.title)
                     .foregroundColor(TomatoAIApp.FOREGROUND_COLOR)
                 
-                CircularProgressView(plantTimer.seconds)
+                CircularProgressView(viewModel.plantTimer.seconds)
                     .frame(width: 200, height: 200)
                     .padding()
             }
             .padding()
             .scaledToFill()
-            .navigationBarTitle(Text(plantTimer.name)
+            .navigationBarTitle(Text(viewModel.plantTimer.name)
             .foregroundColor(TomatoAIApp.FOREGROUND_COLOR).font(.title2), displayMode: .inline)
+            .onAppear(perform: {
+                //scunged
+                viewModel.plantTimer = plantTimerTemp
+            })
         
     }
     
+}
+
+extension PlantTimerView {
+    @MainActor class PlantTimerViewModel: ObservableObject {
+        @Published var plantTimer: PlantTimer = PlantTimer("Tomatoes", "tomato", 1, 5)
+    }
 }
 
 struct PlantTimerView_Previews: PreviewProvider {
